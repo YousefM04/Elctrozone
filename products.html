@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المنتجات - متجرنا الإلكتروني</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Tajawal', sans-serif;
+    background-color: #f5f5f5;
+    font-size: 16px;
+    color: #333;
+}
+ 
+/* القائمة الثابتة */
+.menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.menu a {
+    color: #FFD700;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 12px 20px;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+.menu a:hover {
+    background-color: rgba(255, 215, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: rotate(15deg);
+}
+
+.auth-buttons button {
+    margin-left: 15px;
+    padding: 10px 25px;
+    background: linear-gradient(45deg, #033d5e, #0b6ba2);
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.auth-buttons button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 99, 71, 0.4);
+}
+
+/* محتوى الصفحة */
+h1 {
+    margin-top: 120px;
+    text-align: center;
+    font-size: 2.8rem;
+    color: #2c3e50;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+    background: linear-gradient(45deg, #FFA500, #FF6347);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 40px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto; /* تعديل هنا لجعل الارتفاع تلقائي */
+    max-height: 220px; /* تحديد الحد الأقصى للارتفاع */
+    object-fit: cover;
+    border-bottom: 3px solid #FFD700;
+}
+
+.product-card-content {
+    padding: 20px;
+}
+
+.product-name {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.product-price {
+    font-size: 1.4rem;
+    color: #FF6347;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.product-card button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, #033d5e, #0b6ba2);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.product-card button:hover {
+    background: linear-gradient(45deg, #060148, #2709ed);
+    letter-spacing: 1px;
+}
+
+/* تحسين التنسيق للأجهزة الصغيرة */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+        margin-top: 80px;
+    }
+
+    .products-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 20px 5%;
+    }
+
+     .product-card img { 
+        max-height: 180px; 
+    }
+   
+    .product-name {
+        font-size: 1.1rem;
+    }
+
+    .product-price {
+        font-size: 1.2rem;
+    }
+
+    .product-card button {
+        font-size: 1rem;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+        margin-top: 60px;
+    }
+
+    .products-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+        padding: 15px 5%;
+    }
+
+    .product-card img {
+        max-height: 150px; /* تقليل الحد الأقصى للارتفاع */
+    }
+
+    .product-name {
+        font-size: 1rem;
+    }
+
+    .product-price {
+        font-size: 1.1rem;
+    }
+
+    .product-card button {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+}
+img {
+width:70% !important  ;
+height:70% !important ;
+
+}
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- القائمة الثابتة -->
+    <div class="menu">
+        <div class="logo">
+            <img src="logo1.png" alt="Logo" style="width: 100px !important; height: 100px !important;margin: -20px;">        </div>
+
+        <a href="index.html">الصفحة الرئيسية</a>
+        <a href="products.html">المنتجات</a>
+        <a href="blog.html">المدونة</a>
+        <a href="faq.html">الأسئلة الشائعة</a>
+        <a href="cart.html">عربة التسوق</a>
+        <div class="auth-buttons">
+            <button><a style="color: white; text-decoration: none;" href="login.html">تسجيل الدخول</a></button>
+            <button>اشتراك</button>
+        </div>
+    </div>
+
+    <!-- محتوى الصفحة -->
+    <h1>اكتشف منتجاتنا المميزة</h1>
+    <div class="products-container">
+        <!-- منتج 1 -->
+        <div class="product-card">
+            <img src="product1.webp" alt="سماعة لاسلكية">
+            <div class="product-card-content">
+                <div class="product-name">سماعة لاسلكية</div>
+                <div class="product-price">$50</div>
+                <button onclick="addToCart('سماعة لاسلكية', 50, 'product1.webp')">أضف إلى السلة <i class="fas fa-cart-plus"></i></button>
+            </div>
+        </div>
+        
+        <!-- منتج 2 -->
+        <div class="product-card">
+            <img src="product2.webp" alt="هاتف ذكي">
+            <div class="product-card-content">
+                <div class="product-name">هاتف ذكي</div>
+                <div class="product-price">$300</div>
+                <button onclick="addToCart('هاتف ذكي', 300, 'product2.webp')">أضف إلى السلة <i class="fas fa-cart-plus"></i></button>
+            </div>
+        </div>
+        
+        <!-- منتج 3 -->
+        <div class="product-card">
+            <img src="product3.jpg" alt="ساعة ذكية">
+            <div class="product-card-content">
+                <div class="product-name">ساعة ذكية</div>
+                <div class="product-price">$150</div>
+                <button onclick="addToCart('ساعة ذكية', 150, 'product3.jpg')">أضف إلى السلة <i class="fas fa-cart-plus"></i></button>
+            </div>
+        </div>
+        
+        <!-- منتج 4 -->
+        <div class="product-card">
+            <img src="product4.jpg" alt="لابتوب">
+            <div class="product-card-content">
+                <div class="product-name">لابتوب</div>
+                <div class="product-price">$800</div>
+                <button onclick="addToCart('لابتوب', 800, 'product4.jpg')">أضف إلى السلة <i class="fas fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <!-- المزيد من المنتجات... -->
+        <div class="product-card">
+            <img src="product5.webp" alt="ساعة رقمية">
+            <div class="product-card-content">
+                <div class="product-name">ساعة رقمية</div>
+                <div class="product-price">$7</div>
+                <button onclick="addToCart('ساعة رقمية', 7, 'product5.webp')">أضف إلى السلة <i class="fas fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product6.webp" alt="ماوس لاسلكي">
+            <div class="product-card-content">
+                <div class="product-name">ماوس لاسلكي</div>
+                <div class="product-price">$10</div>
+                <button onclick="addToCart('ماوس لاسلكي', 10, 'product6.webp')">أضف إلى السلة <i class="fas fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product7.webp" alt="لوحة مفاتيح لاسلكية">
+            <div class="product-card-content">
+                <div class="product-name">لوحة مفاتيح لاسلكية</div>
+                <div class="product-price">$40</div>
+                <button onclick="addToCart('لوحة مفاتيح لاسلكية', 40, 'product7.webp')">أضف إلى السلة <i class="fas fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product8.webp" alt="كاميرا رقمية">
+            <div class="product-card-content">
+                <div class="product-name">كاميرا رقمية</div>
+                <div class="product-price">$250</div>
+                <button onclick="addToCart('كاميرا رقمية', 250, 'product8.webp')">أضف إلى السلة <i class="fas fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product9.webp" alt="طابعة ليزر">
+            <div class="product-card-content">
+                <div class="product-name">طابعة ليزر</div>
+                <div class="product-price">$120</div>
+                <button onclick="addToCart('طابعة ليزر', 120, 'product9.webp')">أضف إلى السلة <i class="fas fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product10.webp" alt="سماعات ألعاب">
+            <div class="product-card-content">
+                <div class="product-name">سماعات ألعاب</div>
+                <div class="product-price">$70</div>
+                <button onclick="addToCart('سماعات ألعاب', 70, 'product10.webp')">أضف إلى السلة <i class="fas fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product11.webp" alt="شاحن لاسلكي">
+            <div class="product-card-content">
+                <div class="product-name">شاحن لاسلكي</div>
+                <div class="product-price">$20</div>
+                <button onclick="addToCart('شاحن لاسلكي', 20, 'product11.webp')">أضف إلى السلة <i class="fas fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product12.jpg" alt="شاشة">
+            <div class="product-card-content">
+                <div class="product-name">شاشة</div>
+                <div class="product-price">$90</div>
+                <button onclick="addToCart('شاشة', 90, 'product12.jpg')">أضف إلى السلة <i class="fas fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product13.webp" alt="مكبر صوت بلوتوث">
+            <div class="product-card-content">
+                <div class="product-name">مكبر صوت بلوتوث</div>
+                <div class="product-price">$60</div>
+                <button onclick="addToCart('مكبر صوت بلوتوث', 60, 'product13.webp')">أضف إلى السلة <i class="fas fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product14.webp" alt="كاميرا مراقبة">
+            <div class="product-card-content">
+                <div class="product-name">كاميرا مراقبة</div>
+                <div class="product-price">$100</div>
+                <button onclick="addToCart('كاميرا مراقبة', 100, 'product14.webp')">أضف إلى السلة <i class="fas fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product15.webp" alt="جهاز عرض">
+            <div class="product-card-content">
+                <div class="product-name">جهاز عرض</div>
+                <div class="product-price">$200</div>
+                <button onclick="addToCart('جهاز عرض', 200, 'product15.webp')">أضف إلى السلة <i class="fas fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product16.jpg" alt="قرص صلب خارجي">
+            <div class="product-card-content">
+                <div class="product-name">قرص صلب خارجي</div>
+                <div class="product-price">$80</div>
+                <button onclick="addToCart('قرص صلب خارجي', 80, 'product16.jpg')">أضف إلى السلة <i class="fas fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product17.webp" alt="فرشاة تنظيف">
+            <div class="product-card-content">
+                <div class="product-name">فرشاة تنظيف</div>
+                <div class="product-price">$25</div>
+                <button onclick="addToCart('فرشاة تنظيف', 25, 'product17.webp')">أضف إلى السلة <i class="fas fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product18.webp" alt="لوحة رسم إلكترونية">
+            <div class="product-card-content">
+                <div class="product-name">لوحة رسم إلكترونية</div>
+                <div class="product-price">$150</div>
+                <button onclick="addToCart('لوحة رسم إلكترونية', 150, 'product18.webp')">أضف إلى السلة <i class="fas fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product19.webp" alt="ميكروفون">
+            <div class="product-card-content">
+                <div class="product-name">ميكروفون</div>
+                <div class="product-price">$50</div>
+                <button onclick="addToCart('ميكروفون', 50, 'product19.webp')">أضف إلى السلة <i class="fas fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product20.webp" alt="كاميرا أكشن">
+            <div class="product-card-content">
+                <div class="product-name">كاميرا أكشن</div>
+                <div class="product-price">$120</div>
+                <button onclick="addToCart('كاميرا أكشن', 120, 'product20.webp')">أضف إلى السلة <i class="fas fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product21.webp" alt="ماوس باد ">
+            <div class="product-card-content">
+                <div class="product-name">ماوس باد</div>
+                <div class="product-price">$75</div>
+                <button onclick="addToCart('ماوس باد', 75, 'product21.webp')">أضف إلى السلة <i class="fas fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product22.webp" alt="حبل إضاءة">
+            <div class="product-card-content">
+                <div class="product-name">حبل إضاءة</div>
+                <div class="product-price">$300</div>
+                <button onclick="addToCart('حبل إضاءة', 300, 'product22.webp')">أضف إلى السلة <i class="fas fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product23.jpg" alt="ستاند سماعة">
+            <div class="product-card-content">
+                <div class="product-name">ستاند سماعة</div>
+                <div class="product-price">$40</div>
+                <button onclick="addToCart('ستاند سماعة', 40, 'product23.jpg')">أضف إلى السلة <i class="fas fa-cart-plus"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // دالة لإضافة المنتج إلى عربة التسوق
+        function addToCart(productName, productPrice, productImage) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ name: productName, price: productPrice, image: productImage });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert('تمت إضافة المنتج إلى عربة التسوق');
+        }
+    </script>

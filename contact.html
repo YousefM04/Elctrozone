@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتصل بنا - متجرنا الإلكتروني</title>
+    <style>
+        /* الخطوط */
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f5f5f5;
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* القائمة الثابتة */
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.9);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu a {
+            color: #FFD700;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 12px 20px;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .menu a:hover {
+            background-color: rgba(255, 215, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .logo img {
+            width: 60px;
+            height: 60px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: rotate(15deg);
+        }
+
+        .auth-buttons button {
+            margin-left: 15px;
+            padding: 10px 25px;
+            background: linear-gradient(45deg, #FFA500, #FF6347);
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .auth-buttons button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 99, 71, 0.4);
+        }
+
+        /* محتوى الصفحة */
+        h1 {
+            margin-top: 120px;
+            text-align: center;
+            font-size: 2.8rem;
+            color: #2c3e50;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+            background: linear-gradient(45deg, #FFA500, #FF6347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .about-content h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .contact-email {
+            margin-bottom: 30px;
+        }
+
+        .contact-email p {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .contact-email a {
+            color: #FF6347;
+            text-decoration: none;
+            font-size: 1.1rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-email a:hover {
+            color: #FFA500;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            color: #2c3e50;
+            font-size: 2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #FF6347;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- القائمة الثابتة -->
+    <div class="menu">
+        <div class="logo">
+            <img src="logo2.png" alt="Logo" style="width: 50px; height: 50px;">
+        </div>
+        <img src="logo1.png" alt="Logo" style="width: 100px; height: 100px;margin: -20px;">
+
+        <a href="index.html">الصفحة الرئيسية</a>
+        <a href="products.html">المنتجات</a>
+        <a href="FAQ.html"> مدونة المتجر</a>
+        <a href="Blog.html"> الاسئلة الشائعه</a>
+        <a href="cart.html">عربة التسوق</a>
+
+        <div class="auth-buttons">
+            <button><a style="color: white; text-decoration: none;" href="login.html">تسجيل الدخول</a></button>
+            <button>اشتراك</button>
+        </div>
+    </div>
+
+    <!-- محتوى الصفحة -->
+    <h1>اتصل بنا</h1>
+    <div class="about-content">
+        <h2>نحن هنا لمساعدتك!</h2>
+        <p>
+            إذا كان لديك أي استفسارات أو تحتاج إلى مساعدة، فلا تتردد في التواصل معنا عبر البريد الإلكتروني أو وسائل التواصل الاجتماعي.
+        </p>
+        <div class="contact-email">
+            <p>البريد الإلكتروني:</p>
+            <a href="mailto:info@store.com">info@store.com</a>
+            <a href="mailto:support@store.com">support@store.com</a>
+        </div>
+        <!-- أيقونات التواصل الاجتماعي -->
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+    </div>
+</body>
+</html>

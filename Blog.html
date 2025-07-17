@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدونة المتجر - متجرنا الإلكتروني</title>
+    <style>
+        /* الخطوط */
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f5f5f5;
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* القائمة الثابتة */
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.9);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu a {
+            color: #FFD700;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 12px 20px;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .menu a:hover {
+            background-color: rgba(255, 215, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .logo img {
+            width: 60px;
+            height: 60px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: rotate(15deg);
+        }
+
+        .auth-buttons button {
+            margin-left: 15px;
+            padding: 10px 25px;
+            background: linear-gradient(45deg, #033d5e, #0b6ba2);
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .auth-buttons button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 99, 71, 0.4);
+        }
+
+        /* محتوى الصفحة */
+        h1 {
+            margin-top: 120px;
+            text-align: center;
+            font-size: 2.8rem;
+            color: #2c3e50;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+            background: linear-gradient(45deg, #FFA500, #FF6347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .blog-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-post {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .blog-post h2 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .blog-post p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .blog-post a {
+            color: #FF6347;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .blog-post a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- القائمة الثابتة -->
+    <div class="menu">
+        <div class="logo">
+            <img src="logo1.png" alt="Logo" style="width: 100px; height: 100px;margin: -20px;">
+        </div>
+        <a href="index.html">الصفحة الرئيسية</a>
+        <a href="products.html">المنتجات</a>
+        <a href="blog.html">المدونة</a>
+        <a href="faq.html">الأسئلة الشائعة</a>
+        <a href="cart.html">عربة التسوق</a>
+
+        <div class="auth-buttons">
+            <button><a style="color: white; text-decoration: none;" href="login.html">تسجيل الدخول</a></button>
+            <button>اشتراك</button>
+        </div>
+    </div>
+
+    <!-- محتوى الصفحة -->
+    <h1>مدونة المتجر</h1>
+    <div class="blog-container">
+        <!-- مقال 1 -->
+        <div class="blog-post">
+            <h2>أفضل النصائح لاختيار الهواتف الذكية</h2>
+            <p>
+                في هذا المقال، نقدم لك أفضل النصائح لاختيار الهاتف الذكي المناسب لك. تعرف على المواصفات المهمة والأسعار المناسبة.
+            </p>
+            <a href="#">اقرأ المزيد</a>
+        </div>
+        <!-- مقال 2 -->
+        <div class="blog-post">
+            <h2>كيف تحافظ على بطارية هاتفك لفترة أطول؟</h2>
+            <p>
+                تعرف على أفضل الطرق للحفاظ على بطارية هاتفك وتجنب المشاكل الشائعة التي تؤدي إلى استهلاكها بسرعة.
+            </p>
+            <a href="#">اقرأ المزيد</a>
+        </div>
+        <!-- مقال 3 -->
+        <div class="blog-post">
+            <h2>أحدث صيحات التكنولوجيا لعام 2023</h2>
+            <p>
+                اكتشف أحدث صيحات التكنولوجيا التي ستغير طريقة استخدامنا للأجهزة الذكية في العام الجديد.
+            </p>
+            <a href="#">اقرأ المزيد</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عربة التسوق</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f4f4f4;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+        .cart-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .cart-container h1 {
+            text-align: center;
+            color: #ff5722;
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .cart-item img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .cart-item-details {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+        .cart-item-price {
+            font-weight: bold;
+            color: #ff5722;
+        }
+        .cart-total {
+            text-align: right;
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .remove-button {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu a {
+    color: rgb(255, 233, 108);
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.menu a:hover {
+    color: white;
+    transform: translateY(-3px);
+}
+.auth-buttons button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(255, 87, 34, 0.4);
+}
+.auth-buttons button {
+    margin-left: 10px;
+    padding: 8px 16px;
+    background: linear-gradient(45deg, #ff5722, #e64a19);
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.auth-buttons button {
+            margin-left: 15px;
+            padding: 10px 25px;
+            background: linear-gradient(45deg, #033d5e, #0b6ba2);
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .auth-buttons button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 99, 71, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class = "menu">
+        <img src="logo1.png" alt="Logo" style="width: 100px; height: 100px;margin: -20px;">
+
+        <a href="index.html">الصفحة الرئيسية</a>
+        <a href="products.html">المنتجات</a>
+        <a href="blog.html">المدونة</a>
+        <a href="faq.html">الأسئلة الشائعة</a>
+        <a href="cart.html">عربة التسوق</a>
+
+        <div class="auth-buttons">
+            <button><a style="color: white; text-decoration: none;" href="login.html">تسجيل الدخول</a></button>
+            <button>اشتراك</button>
+        </div>
+    </div>
+    
+        <div class="auth-buttons">
+    <div class="cart-container">
+        <h1>عربة التسوق</h1>
+        <div id="cart-items">
+            <!-- سيتم ملء هذا القسم بالمنتجات المضافة -->
+        </div>
+        <div class="cart-total">
+            المجموع: <span id="cart-total-price">$0.00</span>
+        </div>
+    </div>
+
+    <script>
+        // دالة لعرض المنتجات في عربة التسوق
+        function displayCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cartItems = document.getElementById('cart-items');
+            let cartTotalPrice = document.getElementById('cart-total-price');
+            let total = 0;
+
+            cartItems.innerHTML = '';
+
+            cart.forEach((item, index) => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <div class="cart-item-details">
+                        <img src="${item.image}" alt="${item.name}">
+                        <h3>${item.name}</h3>
+                    </div>
+                    <div class="cart-item-price">$${item.price}</div>
+                    <button class="remove-button" onclick="removeFromCart(${index})">حذف</button>
+                `;
+                cartItems.appendChild(cartItem);
+                total += item.price;
+            });
+
+            cartTotalPrice.textContent = `$${total.toFixed(2)}`;
+        }
+
+        // دالة لحذف المنتج من عربة التسوق
+        function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1); // إزالة العنصر حسب الفهرس
+            localStorage.setItem('cart', JSON.stringify(cart)); // حفظ التحديثات
+            displayCart(); // إعادة عرض العربة بعد الحذف
+            alert('تم حذف المنتج من عربة التسوق');
+        }
+
+        // عرض المنتجات عند تحميل الصفحة
+        displayCart();
+    </script>
+</body>
+</html>

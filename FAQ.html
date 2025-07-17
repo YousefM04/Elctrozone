@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأسئلة الشائعة - متجرنا الإلكتروني</title>
+    <style>
+        /* الخطوط */
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f5f5f5;
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* القائمة الثابتة */
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.9);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu a {
+            color: #FFD700;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 12px 20px;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .menu a:hover {
+            background-color: rgba(255, 215, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .logo img {
+            width: 60px;
+            height: 60px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: rotate(15deg);
+        }
+
+        .auth-buttons button {
+            margin-left: 15px;
+            padding: 10px 25px;
+            background: linear-gradient(45deg, #033d5e, #0b6ba2);
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .auth-buttons button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 99, 71, 0.4);
+        }
+
+        /* محتوى الصفحة */
+        h1 {
+            margin-top: 120px;
+            text-align: center;
+            font-size: 2.8rem;
+            color: #2c3e50;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+            background: linear-gradient(45deg, #FFA500, #FF6347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item h2 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .faq-item p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* تصميم النموذج */
+        .add-question-form {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .add-question-form textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: vertical;
+            margin-bottom: 10px;
+        }
+
+        .add-question-form button {
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #033d5e, #0b6ba2);
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .add-question-form button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 99, 71, 0.4);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- القائمة الثابتة -->
+    <div class="menu">
+        <div class="logo">
+            <img src="logo1.png" alt="Logo" style="width: 100px; height: 100px;margin: -20px;">
+        </div>
+
+        <a href="index.html">الصفحة الرئيسية</a>
+        <a href="products.html">المنتجات</a>
+        <a href="blog.html">المدونة</a>
+        <a href="faq.html">الأسئلة الشائعة</a>
+        <a href="cart.html">عربة التسوق</a>
+
+        <div class="auth-buttons">
+            <button><a style="color: white; text-decoration: none;" href="login.html">تسجيل الدخول</a></button>
+            <button>اشتراك</button>
+        </div>
+    </div>
+
+    <!-- محتوى الصفحة -->
+    <h1>الأسئلة الشائعة</h1>
+    <div class="faq-container">
+        <!-- الأسئلة الحالية -->
+        <div class="faq-item">
+            <h2>كيف يمكنني إعادة منتج؟</h2>
+            <p>
+                يمكنك إعادة المنتج خلال 14 يومًا من تاريخ الشراء بشرط أن يكون المنتج في حالته الأصلية. يرجى التواصل مع خدمة العملاء للحصول على التفاصيل.
+            </p>
+        </div>
+        <div class="faq-item">
+            <h2>ما هي طرق الدفع المتاحة؟</h2>
+            <p>
+                نقبل الدفع عبر البطاقات الائتمانية، التحويل البنكي، والدفع عند الاستلام.
+            </p>
+        </div>
+        <div class="faq-item">
+            <h2>كم تستغرق عملية التوصيل؟</h2>
+            <p>
+                تستغرق عملية التوصيل من 2 إلى 5 أيام عمل حسب الموقع.
+            </p>
+        </div>
+
+        <!-- نموذج إضافة سؤال جديد -->
+        <div class="add-question-form">
+            <h2>اطرح سؤالك</h2>
+            <textarea id="new-question" rows="4" placeholder="اكتب سؤالك هنا..."></textarea>
+            <button onclick="addQuestion()">إرسال السؤال</button>
+        </div>
+
+        <!-- قسم الأسئلة المضافة -->
+        <div id="user-questions"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function addQuestion() {
+            const questionText = document.getElementById("new-question").value;
+            if (questionText.trim() === "") {
+                alert("يرجى كتابة سؤال قبل الإرسال.");
+                return;
+            }
+
+            const userQuestionsDiv = document.getElementById("user-questions");
+
+            const newQuestionDiv = document.createElement("div");
+            newQuestionDiv.className = "faq-item";
+            newQuestionDiv.innerHTML = `
+                <h2>سؤال جديد:</h2>
+                <p>${questionText}</p>
+            `;
+
+            userQuestionsDiv.appendChild(newQuestionDiv);
+
+            // مسح حقل النص بعد الإرسال
+            document.getElementById("new-question").value = "";
+        }
+    </script>
+</body>
+</html>
